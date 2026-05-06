@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bd: #2C1810;
+    --bm: #4A2C1A;
+    --bl: #6B3D20;
+    --gold: #C9A96E;
+    --gl: #E8D5A3;
+    --gp: #F5EDD6;
+    --cream: #FAF6EF;
+    --beige: #EDE3D0;
+    --td: #1C0F08;
+    --tm: #5C3D20;
+    --tmu: #8B6840;
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--td);
+    font-family: 'Jost', sans-serif;
+    @apply antialiased;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .serif-font {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .shimmer-button {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+
+  .shimmer-button::after {
+    content: '';
+    @apply absolute top-0 -left-full w-full h-full;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: all 0.6s;
+  }
+
+  .shimmer-button:hover::after {
+    @apply left-full;
+  }
+
+  .glass-card {
+    background-color: rgba(237, 227, 208, 0.4);
+    @apply backdrop-blur-md border-b-2 border-gold transition-all duration-500;
+  }
+
+  .nav-blur {
+    background-color: rgba(44, 24, 16, 0.95);
+    @apply backdrop-blur-md border-b border-gold/10;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2C1810;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A96E;
+  border-radius: 10px;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.4; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.fab-pulse-effect {
+  position: relative;
+}
+
+.fab-pulse-effect::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 9999px;
+  border: 2px solid rgba(37, 211, 102, 0.4);
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(200%) rotate(45deg); }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
