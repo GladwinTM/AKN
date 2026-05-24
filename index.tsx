@@ -455,6 +455,17 @@ const App = () => {
         <AboutSection />
         <OurWork />
         <Testimonials />
+
+        {/* Final CTA Strip */}
+        <section className="bg-[#2C1810] py-16 px-6 text-center border-t border-[#C9A96E]/10">
+            <div className="max-w-2xl mx-auto">
+                <h3 className="text-2xl font-serif text-[#E8D5A3] italic mb-3">Ready to Begin?</h3>
+                <p className="text-[10px] text-[#E8D5A3]/40 uppercase tracking-[0.2em] mb-8 font-light">Let's plan something extraordinary together</p>
+                <button className="shimmer-button bg-[#C9A96E] text-[#2C1810] w-full py-4 text-[11px] uppercase tracking-widest font-bold shadow-2xl">
+                    Chat with Us on WhatsApp
+                </button>
+            </div>
+        </section>
       </main>
 
       <WhatsAppButton />
